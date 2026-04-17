@@ -1,233 +1,183 @@
-/* --- Globale Magie-Variablen --- */
 :root {
-    --bg-color: #0d0d15; /* Noch dunklerer Grundton */
+    --bg-color: #0d0d15;
     --text-color: #e0e0e0;
-    --accent-color: #4a90e2; /* Magisches Blau */
+    --accent-color: #4a90e2;
     --accent-glow: 0 0 15px rgba(74, 144, 226, 0.7);
     --nav-tile-color: #1a1a25;
 }
 
-/* --- Grundlegende Formeln --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Georgia', 'Times New Roman', serif;
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Georgia', serif; 
 }
 
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+    height: 100vh; 
+    overflow: hidden; 
 }
 
-/* --- Der Magierturm: Scroll-Container --- */
-main {
-    width: 100%;
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
+main { 
+    width: 100%; 
+    height: 100vh; 
+    overflow-y: scroll; 
+    scroll-snap-type: y mandatory; 
+    scroll-behavior: smooth; 
 }
 
-/* --- Turm-Ebenen (Sektionen) --- */
 section {
-    height: 100vh;
-    scroll-snap-align: start;
-    display: flex;
+    height: 100vh; 
+    scroll-snap-align: start; 
+    display: flex; 
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; 
+    align-items: center; 
     text-align: center;
-    padding: 100px 20px 20px 20px;
-    border-bottom: 4px solid #05050a;
+    padding: 120px 20px 40px 20px; 
+    border-bottom: 4px solid #05050a; 
     background-color: var(--bg-color);
-    /* Keine generischen Hintergründe mehr, wir nutzen die Bilder im HTML */
 }
 
-#start { 
-    border-top: 4px solid var(--accent-color);
-}
+#start { border-top: 4px solid var(--accent-color); }
 
-/* --- Tower View "Window" Styling --- */
 .tower-view {
-    width: 100%;
-    max-width: 881px; /* Die tatsächliche Breite deines Bildes */
-    /* Behält das Seitenverhältnis deiner Bilder bei (881/383 approx 2.3:1) */
-    aspect-ratio: 881 / 383; 
-    background-size: contain; /* Zeigt das volle Bild, nicht croppen */
-    background-position: center;
+    width: 100%; 
+    max-width: 881px; 
+    aspect-ratio: 881 / 383;
+    background-size: contain; 
+    background-position: center; 
     background-repeat: no-repeat;
-    margin-bottom: 30px; /* Platz zum Titel */
-    border: 5px solid var(--accent-color);
-    border-radius: 12px;
+    margin-bottom: 40px; 
+    border: 4px solid var(--accent-color); 
+    border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8), var(--accent-glow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tower-view:hover {
-    transform: scale(1.02);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 0 30px rgba(74, 144, 226, 0.9);
-}
+.top-pinnacle { background-image: url('Top.png'); }
+.top-library  { background-image: url('Top2.png'); }
+.top-interests{ background-image: url('Top3.png'); }
+.top-aviary   { background-image: url('Top4.png'); }
 
-/* Mapping der spezifischen Bilder zu den View-Divs */
-.top-pinnacle { background-image: url('top.png'); }
-.top-library { background-image: url('top2.png'); }
-.top-interests { background-image: url('top3.png'); }
-.top-aviary { background-image: url('top4.png'); }
-
-/* --- Header & Magische Navbar --- */
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
     background: rgba(13, 13, 21, 0.95);
-    padding: 10px 0;
-    z-index: 1000;
+    padding: 15px 0; 
+    z-index: 1000; 
     border-bottom: 2px solid var(--accent-color);
-    box-shadow: var(--accent-glow);
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 90%;
-    margin: 0 auto;
-    flex-wrap: wrap;
+nav ul { 
+    list-style: none; 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    flex-wrap: wrap; 
 }
 
 nav li {
-    background-color: var(--nav-tile-color);
+    background-color: var(--nav-tile-color); 
     border: 1px solid var(--accent-color);
-    border-radius: 6px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-    width: 160px;
+    border-radius: 6px; 
+    width: 160px; 
     text-align: center;
 }
 
-nav li:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: var(--accent-glow), 0 0 20px rgba(74, 144, 226, 0.4);
-}
-
 nav a {
-    display: block;
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    display: block; 
+    color: var(--text-color); 
+    text-decoration: none; 
     padding: 15px;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
     white-space: nowrap;
 }
 
-nav a:hover {
-    color: white;
-    text-shadow: var(--accent-glow);
+h1, h2 { 
+    color: white; 
+    margin-bottom: 25px; 
+    font-size: 2.8rem; 
+    text-shadow: var(--accent-glow); 
+    letter-spacing: 2px; 
 }
 
-/* --- Überschriften & Text --- */
-h1, h2 {
-    color: white;
-    margin-bottom: 20px; /* Weniger Abstand */
-    font-size: 3rem;
-    text-shadow: var(--accent-glow);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-p, ul {
-    font-size: 1.4rem;
-    max-width: 800px;
-    line-height: 1.8;
+p {
+    font-size: 1.25rem; 
+    max-width: 650px; 
+    line-height: 1.8; 
     color: #f0f0f0;
+    margin: 0 auto 20px auto;
 }
 
-li p { font-size: 1.3rem; }
-
-ul#interessen-list {
-    list-style: none;
-    text-align: left;
-    width: 100%;
-    max-width: 650px;
+ul#interessen-list { 
+    list-style: none; 
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    text-align: left; 
 }
 
 ul#interessen-list li {
-    margin-bottom: 15px;
-    background: rgba(26, 26, 37, 0.6);
+    margin-bottom: 12px; 
+    background: rgba(26, 26, 37, 0.8); 
     padding: 15px 25px;
-    border-radius: 8px;
-    border-left: 5px solid var(--accent-color);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 8px; 
+    border-left: 4px solid var(--accent-color);
 }
 
-/* --- Kontaktformular --- */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 500px;
+li p { 
+    margin: 0; 
+    font-size: 1.1rem; 
+    line-height: 1.5; 
+}
+
+form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    width: 100%; 
+    max-width: 500px; 
+    margin: 0 auto; 
 }
 
 input, textarea {
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.7);
+    padding: 15px; 
+    background: rgba(0, 0, 0, 0.7); 
     border: 1px solid var(--accent-color);
-    color: white;
-    font-size: 1.2rem;
-    border-radius: 6px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    color: white; 
+    font-size: 1.1rem; 
+    border-radius: 6px; 
+    font-family: 'Georgia', serif;
 }
 
-textarea { height: 150px; resize: none; }
-input:focus, textarea:focus { border-color: white; box-shadow: var(--accent-glow); }
+textarea { 
+    height: 120px; 
+    resize: none; 
+}
 
 button {
-    padding: 15px;
-    background: var(--accent-color);
-    color: white;
+    padding: 15px; 
+    background: var(--accent-color); 
+    color: white; 
     border: none;
-    font-size: 1.3rem;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 1.2rem; 
+    cursor: pointer; 
+    border-radius: 6px; 
+    text-transform: uppercase; 
     font-weight: bold;
 }
 
-button:hover {
-    background: white;
-    color: var(--accent-color);
-    box-shadow: var(--accent-glow), 0 0 25px rgba(74, 144, 226, 0.5);
-    transform: translateY(-2px);
-}
-
-/* --- Footer --- */
-footer { display: none; }
-
-/* --- Medienabfragen für Responsivität --- */
-
-@media (max-width: 992px) {
-    h1, h2 { font-size: 2.5rem; }
-    p, ul { font-size: 1.2rem; }
-    .tower-view { max-width: 100%; } /* Füllt die Breite auf kleineren Geräten */
+footer { 
+    display: none; 
 }
 
 @media (max-width: 768px) {
-    section { padding-top: 160px; }
-    nav ul { gap: 10px; }
-    nav li { width: calc(50% - 5px); }
-    h1, h2 { font-size: 1.8rem; }
-    .tower-view { margin-bottom: 20px; border-width: 3px; }
+    section { padding-top: 140px; }
+    .tower-view { margin-bottom: 20px; }
+    h1, h2 { font-size: 2rem; }
+    nav li { width: calc(50% - 10px); }
 }
