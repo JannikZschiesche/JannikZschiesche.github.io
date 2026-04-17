@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="star-field"></div>
+
     <header>
         <nav>
             <ul>
@@ -44,13 +46,16 @@
 
         <section id="kontakt">
             <div class="tower-view top-aviary"></div>
-            <h2>Sende einen Raben (oder Eule)</h2>
-            <form id="contact-form">
-                <input type="text" id="name" placeholder="Dein Name" required>
-                <input type="email" id="email" placeholder="Deine E-Mail" required>
-                <textarea id="message" placeholder="Deine Botschaft..." required></textarea>
-                <button type="submit">Botschaft übermitteln</button>
-            </form>
+            <h2>Sende einen Raben</h2>
+            <div id="form-container">
+                <small>*(Platzhalter - Die Raben gilden senden noch nicht tatsächlich)*</small>
+                <form id="contact-form">
+                    <input type="text" id="name" placeholder="Dein Name" required>
+                    <input type="email" id="email" placeholder="Deine E-Mail" required>
+                    <textarea id="message" placeholder="Deine Botschaft..." required></textarea>
+                    <button type="submit">Botschaft übermitteln</button>
+                </form>
+            </div>
         </section>
     </main>
 
