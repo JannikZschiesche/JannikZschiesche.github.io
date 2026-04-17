@@ -3,44 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gefährten der Informatik | Portfolio</title>
+    <title>Gefährten der Informatik | Magierturm Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#start">Startseite</a></li>
-                <li><a href="#ueber-mich">Über mich</a></li>
-                <li><a href="#interessen">Interessen</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
+                <li><a href="#start">Spitze</a></li>
+                <li><a href="#ueber-mich">Bibliothek</a></li>
+                <li><a href="#interessen">Bardenhalle</a></li>
+                <li><a href="#kontakt">Eulerei</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="start">
-            <h1>Willkommen in meiner Taverne</h1>
+            <div class="tower-view top-pinnacle"></div>
+            <h1>Willkommen in der Spitze</h1>
             <p>Tritt ein. Hier verschmelzen uralte Magie, moderner Code und gute Gesellschaft.</p>
         </section>
 
         <section id="ueber-mich">
-            <h2>Über den Magier</h2>
+            <div class="tower-view top-library"></div>
+            <h2>Die Bibliothek des Wissens</h2>
             <p>Masterstudent der Informatik. Wenn ich nicht gerade Code-Runen entziffere, schmiede ich an neuen Software-Artefakten oder widme mich der aktuellen Technik.</p>
         </section>
 
         <section id="interessen">
-            <h2>Gilden & Handwerk</h2>
-            <ul>
-                <li><strong>Bardenkunst:</strong> Leidenschaftliches Klavierspielen.</li>
-                <li><strong>Eismagie:</strong> Ski fahren in den Bergen mit der Truppe.</li>
-                <li><strong>Alchemie:</strong> Epische Festmahle kochen mit meinen Bros.</li>
-                <li><strong>Technomagie:</strong> Tiefes Interesse an neuen Hardware- und Software-Technologien.</li>
+            <div class="tower-view top-interests"></div>
+            <h2>Halle der Künste & Gilden</h2>
+            <ul id="interessen-list">
+                <li><p><strong>Bardenkunst:</strong> Leidenschaftliches Klavierspielen.</p></li>
+                <li><p><strong>Eismagie:</strong> Ski fahren in den Bergen mit der Truppe.</p></li>
+                <li><p><strong>Alchemie:</strong> Epische Festmahle kochen mit meinen Bros.</p></li>
+                <li><p><strong>Technomagie:</strong> Tiefes Interesse an neuen Hardware- und Software-Technologien.</p></li>
             </ul>
         </section>
 
         <section id="kontakt">
-            <h2>Sende einen Raben</h2>
+            <div class="tower-view top-aviary"></div>
+            <h2>Sende einen Raben (oder Eule)</h2>
             <form id="contact-form">
                 <input type="text" id="name" placeholder="Dein Name" required>
                 <input type="email" id="email" placeholder="Deine E-Mail" required>
