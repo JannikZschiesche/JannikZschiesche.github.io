@@ -1,17 +1,16 @@
 :root {
-    --bg-color: #0d0d15; /* Beibehaltung der dunklen Grundfarbe */
+    --bg-color: #0d0d15;
     --text-color: #e0e0e0;
-    --accent-color: #4a90e2; /* Magisches Blau */
+    --accent-color: #4a90e2;
     --accent-glow: 0 0 15px rgba(74, 144, 226, 0.7);
     --nav-tile-color: #1a1a25;
 }
 
-/* --- Globale Formeln & Reset --- */
 * { 
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    font-family: 'Georgia', 'Times New Roman', serif; 
+    font-family: 'Georgia', serif; 
 }
 
 body { 
@@ -22,40 +21,40 @@ body {
     overflow: hidden; 
 }
 
-/* --- Animierter Sternenhintergrund (Hinter allem) --- */
 .star-field {
     position: fixed;
     top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -100; /* Ganz nach hinten */
-    background: radial-gradient(circle at center, rgba(13, 13, 21, 0.2), var(--bg-color)); /* Subtiler Fade nach außen */
-    pointer-events: none; /* Klicks durchlassen */
+    width: 100vw; height: 100vh;
+    z-index: 0; 
+    pointer-events: none;
 }
 
-/* Die funkelnden Sterne */
 .star-field::after {
     content: "";
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     background-image: 
-        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-        radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 2px),
-        radial-gradient(white, rgba(255,255,255,.05) 1px, transparent 1px);
-    background-size: 550px 550px, 350px 350px, 250px 250px;
-    background-position: 0 0, 40px 60px, 130px 270px;
-    animation: sparkle 5s linear infinite; /* Animation definieren */
-    opacity: 0.6; /* Subtil */
+        radial-gradient(circle at 20px 30px, #fff 1px, transparent 2px),
+        radial-gradient(circle at 80px 120px, #fff 1px, transparent 2px),
+        radial-gradient(circle at 150px 70px, #fff 1px, transparent 2px),
+        radial-gradient(circle at 220px 180px, #fff 1px, transparent 2px),
+        radial-gradient(circle at 280px 40px, #fff 1px, transparent 2px),
+        radial-gradient(circle at 350px 250px, #fff 1px, transparent 2px),
+        radial-gradient(circle at 100px 280px, #fff 1px, transparent 2px);
+    background-size: 400px 400px;
+    animation: sparkle 3s ease-in-out infinite alternate;
+    opacity: 0.7;
 }
 
 @keyframes sparkle {
-    0% { transform: translate(0,0) scale(1); opacity: 0.6; }
-    50% { transform: translate(2px, -3px) scale(1.02); opacity: 0.8; }
-    100% { transform: translate(0,0) scale(1); opacity: 0.6; }
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.02); }
 }
 
-/* --- Der Magierturm: Scroll-Container --- */
 main { 
+    position: relative;
+    z-index: 10;
     width: 100%; 
     height: 100vh; 
     overflow-y: scroll; 
@@ -63,7 +62,6 @@ main {
     scroll-behavior: smooth; 
 }
 
-/* --- Turm-Ebenen (Sektionen) --- */
 section {
     height: 100vh; 
     scroll-snap-align: start; 
@@ -72,14 +70,13 @@ section {
     justify-content: center; 
     align-items: center; 
     text-align: center;
-    padding: 120px 20px 40px 20px; /* Platz für die Navbar */
+    padding: 120px 20px 40px 20px; 
     border-bottom: 4px solid #05050a; 
-    background-color: var(--bg-color); /* Jede Sektion überlagert die Sterne */
+    background-color: transparent; 
 }
 
 #start { border-top: 4px solid var(--accent-color); }
 
-/* --- Tower View "Window" Styling --- */
 .tower-view {
     width: 100%; 
     max-width: 881px; 
@@ -99,13 +96,11 @@ section {
     box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 0 30px rgba(74, 144, 226, 0.9);
 }
 
-/* Mapping der spezifischen Bilder (ACHTE AUF GROSS/KLEINSCHREIBUNG) */
 .top-pinnacle { background-image: url('Top.png'); }
 .top-library  { background-image: url('Top2.png'); }
 .top-interests{ background-image: url('Top3.png'); }
 .top-aviary   { background-image: url('Top4.png'); }
 
-/* --- Header & Magische Navbar --- */
 header {
     position: fixed; 
     top: 0; 
@@ -148,10 +143,9 @@ nav a:hover {
     text-shadow: var(--accent-glow);
 }
 
-/* --- Überschriften & Text (Optimiert) --- */
 h1, h2 { 
     color: white; 
-    margin: 0 auto 25px auto; /* Zentriert und Abstand */
+    margin: 0 auto 25px auto;
     font-size: 3rem; 
     text-shadow: var(--accent-glow); 
     letter-spacing: 2px; 
@@ -160,10 +154,10 @@ h1, h2 {
 
 p {
     font-size: 1.3rem; 
-    max-width: 600px; /* Schmaler für bessere Lesbarkeit */
+    max-width: 600px; 
     line-height: 1.8; 
     color: #f0f0f0;
-    margin: 0 auto 25px auto; /* Zentriert */
+    margin: 0 auto 25px auto; 
 }
 
 ul#interessen-list { 
@@ -188,7 +182,6 @@ li p {
     line-height: 1.6; 
 }
 
-/* --- Kontaktformular (Optimiert & Platzhalter-Hinweis) --- */
 #form-container {
     display: flex;
     flex-direction: column;
@@ -213,13 +206,13 @@ input, textarea {
     font-size: 1.1rem; 
     border-radius: 6px; 
     font-family: 'Georgia', serif;
-    text-align: center; /* ZENTRIERT DEN PLATZHALTER-TEXT */
+    text-align: center; 
 }
 
 textarea { 
     height: 120px; 
     resize: none; 
-    text-align: left; /* Textarea-Eingabe normal */
+    text-align: left; 
 }
 
 input:focus, textarea:focus {
@@ -227,7 +220,6 @@ input:focus, textarea:focus {
     box-shadow: var(--accent-glow);
 }
 
-/* Kleiner Hinweis für den Platzhalter */
 #form-container small {
     display: block;
     margin-top: -10px;
@@ -256,10 +248,8 @@ button:hover {
     box-shadow: var(--accent-glow), 0 0 25px rgba(74, 144, 226, 0.5);
 }
 
-/* --- Footer --- */
 footer { display: none; }
 
-/* --- Medienabfragen --- */
 @media (max-width: 768px) {
     section { padding-top: 140px; }
     .tower-view { margin-bottom: 20px; }
