@@ -148,8 +148,14 @@ li p { margin: 0; font-size: 1.2rem; line-height: 1.6; }
 
 /* Kontakt-Links & Formular */
 .contact-links {
-    display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; 
-    margin-bottom: 30px; width: 100%; max-width: 600px;
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    margin-top: 50px; 
+    margin-bottom: 30px; 
+    width: 100%; 
+    max-width: 600px;
 }
 .contact-badge {
     background: rgba(26, 26, 37, 0.9); border: 1px solid var(--accent-color);
