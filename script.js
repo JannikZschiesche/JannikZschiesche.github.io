@@ -1,19 +1,28 @@
-// Warte, bis das HTML vollständig geladen ist
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Finde das Formular-Element
     const contactForm = document.getElementById("contact-form");
-    
-    // Verhindere das Standard-Abschicken und zeige ein Popup
-    contactForm.addEventListener("submit", (e) => {
-        
-        // Verhindert das Standard-Verhalten des Formulars (Seite neu laden)
-        e.preventDefault(); 
-        
-        // Popup-Nachricht anzeigen
-        alert("🧙‍♂️ Deine Botschaft wurde an die Raben gilde übergeben! Wir haben noch keine echten Raben, aber der Platzhalter ist stolz darauf, deine Runen angenommen zu haben.");
-        
-        // Optionale: Das Formular leeren
-        // contactForm.reset(); 
+    if(contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault(); 
+            alert("🧙‍♂️ Deine Botschaft wurde an die Raben gilde übergeben! Der Platzhalter ist stolz.");
+        });
+    }
+
+    const observerOptions = {
+        threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fly-in').forEach(el => {
+        observer.observe(el);
     });
 });
